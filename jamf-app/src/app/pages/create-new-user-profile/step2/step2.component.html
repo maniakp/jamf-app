@@ -1,0 +1,21 @@
+<div [formGroup]="form!">
+  <div class="header-group">
+    <label class="label-group-1">Choose the User Group</label>
+    <label class="label-group-2">User Group to add the user to</label>
+  </div>
+  <ng-container *ngIf="!!options">
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label class="input-label">USER GROUP</mat-label>
+      <mat-select
+        #select
+        formControlName="group"
+        [placeholder]="select.empty ? 'None' : ' '"
+        required
+      >
+        <mat-option *ngFor="let group of options" [value]="group">
+          {{ group.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+</div>

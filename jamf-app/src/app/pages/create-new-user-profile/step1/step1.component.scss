@@ -1,0 +1,11 @@
+@import "src/styles";
+
+mat-form-field {
+  display: block;
+  margin: 20px;
+}
+
+.input-label {
+  color: $color-darkblue;
+  font-weight: bold;
+}

@@ -1,0 +1,24 @@
+@import "src/styles";
+
+.header-group {
+  display: inline-grid;
+  margin: 20px 0px 0px 20px;
+}
+
+.input-label {
+  color: $color-darkblue;
+  font-weight: bold;
+}
+.label-group-1 {
+  font-size: large;
+  color: $color-black;
+}
+.label-group-2 {
+  font-size: small;
+  color: $color-lightgray;
+}
+
+mat-form-field {
+  display: block;
+  margin: 20px;
+}

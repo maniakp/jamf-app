@@ -1,0 +1,80 @@
+@import "src/styles";
+
+.drawer-container {
+  width: 100%;
+  height: 90vh;
+}
+.drawer-sidenav {
+  height: 100%;
+  width: 20vw;
+  padding-top: 5%;
+  background-image: url("/assets/app-icon.png"),
+    url("/assets/side-background.png");
+  background-repeat: no-repeat, repeat;
+  background-size: 40vh, auto;
+  background-position: bottom left, center;
+  background-position-x: 5vw;
+}
+
+ul {
+  .li-step {
+    margin: 10px;
+    &::marker {
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    &.active::marker {
+      color: lawngreen;
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+}
+
+.stepper-footer {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
+.footer-button-cancel {
+  border: 1px;
+  border-radius: 50px;
+  columns: #222222;
+}
+.footer-button-next {
+  border: 1px;
+  border-radius: 50px;
+  background-color: $color-blue;
+  color: $color-white;
+}
+.divider {
+  width: 5px;
+  height: auto;
+  display: inline-block;
+}
+.drawer-sidenav-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .drawer-sidenav {
+    display: none;
+  }
+  .drawer-sidenav-mobile {
+    display: block;
+    background-image: url("/assets/side-background.png");
+    border-bottom: 1px solid;
+    border-color: $color-lightgray;
+    margin-top: -15px;
+    padding-top: 15px;
+  }
+
+  .step-label {
+    display: block;
+    margin: 20px;
+    font-size: large;
+    color: $color-black;
+  }
+}

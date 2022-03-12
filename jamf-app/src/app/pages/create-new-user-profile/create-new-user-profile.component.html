@@ -1,0 +1,30 @@
+<form [formGroup]="userDataFormGroup">
+  <app-custom-stepper
+    linear
+    orientation="vertical"
+    showError="true"
+    [customStepper]="stepper"
+    (submit)="onSubmit()"
+    #stepper
+  >
+    <ng-container [formGroup]="getStep1Form()">
+      <cdk-step [stepControl]="getStep1Form()">
+        <ng-template cdkStepLabel>Add login details</ng-template>
+        <app-step1 [form]="getStep1Form()"></app-step1>
+      </cdk-step>
+    </ng-container>
+
+    <ng-container [formGroup]="getStep2Form()">
+      <cdk-step [stepControl]="getStep2Form()">
+        <ng-template cdkStepLabel>Select the user group</ng-template>
+        <app-step2 [form]="getStep2Form()"></app-step2>
+      </cdk-step>
+    </ng-container>
+    <ng-container>
+      <cdk-step>
+        <ng-template cdkStepLabel>Submit the form</ng-template>
+        <app-step3 [form]="getStep3Form()"></app-step3>
+      </cdk-step>
+    </ng-container>
+  </app-custom-stepper>
+</form>

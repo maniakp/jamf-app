@@ -1,0 +1,13 @@
+@import "src/styles";
+
+.mat-elevation-z4 {
+  position: relative;
+  z-index: 5;
+  background-color: $color-white;
+  color: $color-darkblue;
+  height: 10vh;
+}
+
+.header-title {
+  padding-left: 10px;
+}

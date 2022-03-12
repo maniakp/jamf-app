@@ -1,0 +1,70 @@
+<mat-drawer-container
+  class="drawer-container"
+  backgroud-color="#232323"
+  autosize
+>
+  <mat-drawer class="drawer-sidenav" mode="side" opened>
+    <header class="header">
+      <ul>
+        <ng-container *ngFor="let step of steps; let i = index">
+          <li
+            class="li-step"
+            [ngClass]="selectedIndex === i ? activeClass : ''"
+          >
+            <a (click)="selectedIndex = i">
+              <ng-container
+                *ngIf="step.stepLabel"
+                [ngTemplateOutlet]="step.stepLabel.template"
+              >
+              </ng-container>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </header>
+  </mat-drawer>
+
+  <div class="drawer-sidenav-mobile">
+    <ng-container *ngFor="let step of steps; let i = index">
+      <label class="step-label">
+        <ng-container
+          *ngIf="step.stepLabel && selectedIndex == i"
+          [ngTemplateOutlet]="step.stepLabel.template"
+        >
+        </ng-container
+      ></label>
+    </ng-container>
+  </div>
+
+  <div [ngTemplateOutlet]="selected ? selected.content : null"></div>
+
+  <footer class="stepper-footer">
+    <button
+      class="footer-button-cancel"
+      type="button"
+      mat-raised-button
+      (click)="resetFormAndStepper()"
+    >
+      Cancel
+    </button>
+    <div class="divider"></div>
+    <button
+      class="footer-button-next"
+      *ngIf="selectedIndex < steps.length - 1"
+      type="button"
+      mat-raised-button
+      cdkStepperNext
+    >
+      Next
+    </button>
+    <button
+      class="footer-button-next"
+      *ngIf="selectedIndex == steps.length - 1"
+      type="button"
+      mat-raised-button
+      (click)="submitForm()"
+    >
+      Submit
+    </button>
+  </footer>
+</mat-drawer-container>
